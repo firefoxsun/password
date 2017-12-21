@@ -1,0 +1,28 @@
+package com.zxr.project;
+
+import javax.sql.DataSource;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月21日 上午10:24:18 
+* 类说明 
+*/
+public class JdbcUtils {
+	private static String user = "root";
+	private static String password = "root";
+	private static String dbName = "db_password";
+	private static String url =  "jdbc:mysql://localhost:3306/"+dbName+"?user="+user+"&password="+password+"&useUnicode=true&characterEncoding=gb2312";
+	
+	private static DataSource dataSource = null;
+	
+	//===加载驱动===
+	static{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("ClassNotFoundException");
+		}
+	}
+	private JdbcUtils(){
+
+}
