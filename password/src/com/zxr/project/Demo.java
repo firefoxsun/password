@@ -13,7 +13,7 @@ import java.sql.Statement;
 */
 public class Demo {
 	public static void main(String[] args) {
-		//²âÊÔ´úÂë
+		//Ä£°æ´úÂë
 		templte();
 	}
 

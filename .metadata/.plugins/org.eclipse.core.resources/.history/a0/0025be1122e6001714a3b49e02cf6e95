@@ -1,0 +1,34 @@
+package com.zxr.domain;
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月21日 下午3:32:47 
+* 类说明 
+*/
+import com.zxr.project.JdbcUtils;
+public class UserDaoImpl implements UserDao{
+	//==添加用户==
+	@Override
+	public void addUser(User user) {
+		Conne
+		
+	}
+
+	@Override
+	public User getUserById(int userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int update(User user) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(User user) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
