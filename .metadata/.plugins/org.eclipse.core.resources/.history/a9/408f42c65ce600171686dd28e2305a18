@@ -1,0 +1,37 @@
+package com.zxr.domain;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+/**
+ * @author zxr:zhaoxinran_dlmuit@163.com
+ * @version 创建时间：2017年12月21日 下午8:48:04 
+ * 类说明 工厂模式进行实例化UserDao对象
+ */
+public class DaoFactory {
+	// 单例模式
+	private static UserDao userDao = null;
+	private static DaoFactory instance = new DaoFactory();
+
+	private DaoFactory() {
+		// 通过属性文件动态加载Dao层类
+		Properties prop = new Properties();
+
+		try {
+			FileInputStream fis = new FileInputStream("src/com/zxr/domain/daoconfig.properties");
+			prop.load(fis);
+			String className = prop.getProperty("userDaoClass");
+			Class<?> clazz = Class.forName(className);
+			userDao = (UserDao) clazz.newInstance();//可以创建对应的运行时类的对象
+			fis.close();
+		} catch (Throwable e) {
+			System.out.println("DaoFactory:Throwable");
+		}
+	}
+	public static DaoFactory getInstance(){
+		return instance;
+	}
+	public UserDao createUserDao(){
+		return userDao;
+	}
+}
