@@ -10,4 +10,5 @@
 <fullyQualifiedTypeName name="com.zxr.project.JdbcUtils"/>
 <fullyQualifiedTypeName name="com.zxr.domain.User"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
 </qualifiedTypeNameHistroy>

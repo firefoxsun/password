@@ -1,0 +1,54 @@
+package com.zxr.domain;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+/**
+ * @author zxr:zhaoxinran_dlmuit@163.com
+ * @version 创建时间：2017年12月21日 下午8:48:04 
+ * 类说明 工厂模式进行实例化UserDao对象
+ */
+public class DaoFactory {
+	// 单例模式
+	private static UserDao userDao = null; //实现类对象指向接口引用
+	private static DaoFactory instance = new DaoFactory(userDao);
+
+	private DaoFactory(UserDao userDao) {
+		// 通过属性文件动态加载 Dao层类
+		Properties prop = new Properties();
+		
+			try {
+				FileInputStream fis = new FileInputStream("src/com/zxr/domain/daoconfig.properties");
+				prop.load(fis);
+				String className = prop.getProperty("userDaolmpl");
+				Class<?> clazz = Class.forName(className);
+				System.out.println("clazz:"+clazz);
+				userDao = (UserDao) clazz.newInstance();//可以创建对应的运行时类的对象
+				System.out.println("clazz-userDao:"+userDao);
+				fis.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("DaoFactory:FileNotFoundException");
+			} catch (ClassNotFoundException e) {
+				System.out.println("DaoFactory:ClassNotFoundException");
+			} catch (InstantiationException e) {
+				System.out.println("DaoFactory:InstantiationException");
+			} catch (IllegalAccessException e) {
+				System.out.println("DaoFactory:IllegalAccessException");
+			} catch (IOException e) {
+				System.out.println("DaoFactory:IOException");
+			}
+		
+	}
+	//获得实例
+	public static DaoFactory getInstance(){
+		System.out.println("DaoFactory instance:"+instance);
+		return instance;
+	}
+	//获得实例
+	public UserDao createUserDao(){
+		System.out.println("UserDao instance:"+userDao);
+		return userDao;
+	}
+}

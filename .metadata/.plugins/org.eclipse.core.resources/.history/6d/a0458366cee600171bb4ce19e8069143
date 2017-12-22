@@ -1,0 +1,31 @@
+package com.zxr.domain;
+
+import org.junit.Test;
+
+/**
+ * @author zxr:zhaoxinran_dlmuit@163.com
+ * @version 创建时间：2017年12月21日 下午3:27:19 类说明 ：数据访问层
+ */
+/*
+ * * 接口（interface） 是与类并行的一个概念 1.接口可以看做是一个特殊的抽象类。是常量与抽象方法的一个集合，不能包含变量、一般的方法。
+ * 2.接口是没有构造器的。 3.接口定义的就是一种功能。此功能可以被类所实现（implements）。 比如：class CC extends DD
+ * implements AA 4.实现接口的类，必须要重写其中的所有的抽象方法，方可实例化。若没有重写所有的抽象方法，则此类仍为一个抽象类
+ * 5.类可以实现多个接口。----java 中的类的继承是单继承的 6.接口与接口之间也是继承的关系，而且可以实现多继承
+ * >5,6描述的是java中的继承的特点。 7.接口与具体的实现类之间也存在多态性
+ */
+
+
+public interface UserDao {
+	// 添加用户
+	public void addUser(User user);
+
+	// 通过userid查询用户，id是唯一，返回user
+	public User getUserByName(String userName);
+
+	// 更新用户信息
+	public int update(User user);
+
+	// 删除用户信息
+	public int delete(User user);
+}
+

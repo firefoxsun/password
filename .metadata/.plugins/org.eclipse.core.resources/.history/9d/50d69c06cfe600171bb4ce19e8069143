@@ -1,0 +1,18 @@
+package com.zxr.domain;
+
+import org.junit.Test;
+
+/**
+ * @author zxr:zhaoxinran_dlmuit@163.com
+ * @version 创建时间：2017年12月22日 下午12:12:33 类说明
+ */
+public class TestDemo1 {
+
+	@Test
+	public void test() throws ClassNotFoundException{
+		String className = "com.zxr.domain.UserDao";
+		Class<?> clazz = Class.forName(className);
+	//	System.out.println(clazz);
+		Object userDao = clazz.newInstance();
+	}
+}

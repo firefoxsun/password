@@ -1,43 +1,42 @@
 package com.zxr.domain;
 
+import java.util.Date;
 
-/** 
-* @author zxr:zhaoxinran_dlmuit@163.com 
-* @version 创建时间：2017年12月21日 下午3:24:23 
-* 类说明 
-*/
+/**
+ * @author zxr:zhaoxinran_dlmuit@163.com
+ * @version 创建时间：2017年12月21日 下午3:24:23 类说明
+ */
 public class User {
-	private int id;
-	private String name;
+	private String website;
+	private String urls;
+	private String userName;
 	private String email;
 	private String password;
-	
-	public User(int id, String name, String email, String password) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.password = password;
+	private String tel;
+	private Date timeStamp;
+
+	public String getWebsite() {
+		return website;
 	}
 
-	public User() {
-		super();
+	public void setWebsite(String website) {
+		this.website = website;
 	}
 
-	public int getId() {
-		return id;
+	public String getUrls() {
+		return urls;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUrls(String urls) {
+		this.urls = urls;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getEmail() {
@@ -55,5 +54,37 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
+
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+	public User(String website, String urls, String userName, String email, String password, String tel,
+			Date timeStamp) {
+		super();
+		this.website = website;
+		this.urls = urls;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+		this.tel = tel;
+		this.timeStamp = timeStamp;
+	}
+
+	public User() {
+		super();
+	}
+
 }

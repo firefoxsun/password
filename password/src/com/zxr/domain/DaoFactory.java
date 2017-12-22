@@ -12,18 +12,17 @@ import java.util.Properties;
  */
 public class DaoFactory {
 	// 单例模式
+	private static UserDao userDao = null; //实现类对象指向接口引用
 	private static DaoFactory instance = new DaoFactory();
-	private static UserDao userDao = null;
 
 	private DaoFactory() {
 		// 通过属性文件动态加载 Dao层类
 		Properties prop = new Properties();
-
 		
 			try {
 				FileInputStream fis = new FileInputStream("src/com/zxr/domain/daoconfig.properties");
 				prop.load(fis);
-				String className = prop.getProperty("userDao");
+				String className = prop.getProperty("userDaolmpl");
 				Class<?> clazz = Class.forName(className);
 				userDao = (UserDao) clazz.newInstance();//可以创建对应的运行时类的对象
 				fis.close();
@@ -45,7 +44,7 @@ public class DaoFactory {
 		return instance;
 	}
 	//获得实例
-	public UserDao createUserDao(){
+	public  static UserDao createUserDao(){
 		return userDao;
 	}
 }

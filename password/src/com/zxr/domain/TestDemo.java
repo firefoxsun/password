@@ -9,6 +9,7 @@ public class TestDemo {
 	public static void main(String[] args) {
 		UserService userService = new UserService();
 		System.out.println("ÃÌº””√ªß:");
-		userService.regist(new User(1,"jiang","zhao@com","root"));
+		User user = new User(6,"jiang","zhao@com","root");
+		userService.regist(user);
 	}
 }
