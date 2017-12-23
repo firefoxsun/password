@@ -16,8 +16,7 @@ public class JdbcUtils {
 	private static String user = "root";
 	private static String password = "root";
 	private static String dbName = "db_password";
-	private static String url = "jdbc:mysql://localhost:3306/" + dbName + "?user=" + user + "&password=" + password
-			+ "&useUnicode=true&characterEncoding=gb2312";
+	private static String url = "jdbc:mysql://localhost:3306/db_password?useUnicode=true&characterEncoding=gb2312&useSSL=false";
 
 	private static DataSource dataSource = null;
 
@@ -36,7 +35,7 @@ public class JdbcUtils {
 
 	// ===获取连接=====
 	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(url);
+		return DriverManager.getConnection(url, user, password);
 	}
 
 	public static DataSource getDataSource() {

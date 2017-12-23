@@ -1,6 +1,6 @@
 package com.zxr.domain;
 
-import java.util.Date;
+
 
 /**
  * @author zxr:zhaoxinran_dlmuit@163.com
@@ -13,7 +13,7 @@ public class User {
 	private String email;
 	private String password;
 	private String tel;
-	private Date timeStamp;
+	private String timeStamp;
 
 	public String getWebsite() {
 		return website;
@@ -63,16 +63,16 @@ public class User {
 		this.tel = tel;
 	}
 
-	public Date getTimeStamp() {
+	public String getTimeStamp() {
 		return timeStamp;
 	}
 
-	public void setTimeStamp(Date timeStamp) {
+	public void setTimeStamp(String timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 
 	public User(String website, String urls, String userName, String email, String password, String tel,
-			Date timeStamp) {
+			String timeStamp) {
 		super();
 		this.website = website;
 		this.urls = urls;

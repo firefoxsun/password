@@ -1,0 +1,47 @@
+package view;
+
+import java.net.URL;
+import com.zxr.domain.*;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+
+/**
+ * @author zxr:zhaoxinran_dlmuit@163.com
+ * @version 创建时间：2017年12月23日 上午10:35:32 类说明 处理一级页面响应类
+ */
+public class MainPage implements Initializable {
+	@FXML
+	private Button addButton;
+
+	@FXML
+	private Button deletButton;
+
+	@FXML
+	private Button queryButton;
+
+	@FXML
+	private Button updateButton;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+	}
+
+	// When user click on addButton
+	public void addButton() {
+		addButton.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("===录入信息===");
+				User user = new User("acbs", "https://www.csdn.net/", "firefoxsun", "zhaoxinran_dlmuit@163.com",
+						"1998111522222", "18098847785", "123456");
+				userService.regist(user);
+			}
+		});
+	}
+}

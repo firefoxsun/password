@@ -6,9 +6,9 @@ package com.zxr.domain;
 */
 
 public class UserService {
-	private UserDao userDao;
+	private static UserDao userDao;
 	
-	public UserService(){
+	public  UserService(){
 		//通过工厂实例化UserDao对象
 		userDao = DaoFactory.getInstance().createUserDao();		
 	}
@@ -24,29 +24,30 @@ public class UserService {
 	}
 	
 	//查询用户
-	public User query(String userName){
-		User user = userDao.getUserByName(userName);
+	public User query(String website){
+		User user = userDao.getUserByWebsite(website);
 		if(user == null){
 			System.out.println("查询结果为空!!");
 		}else{
-			System.out.println(user.getId()+"\t"+user.getName()+"\t"+user.getEmail()+"\t"+user.getPassword());
+			System.out.println(user.getUrls()+"\t"+user.getUserName()+"\t"+user.getEmail()+"\t"+user.getPassword()+"\t"+user.getTel()+"\t"+user.getTimeStamp());
 		}
-		return userDao.getUserByName(userName);
-		
+		return userDao.getUserByWebsite(website);
 	}
 	
 	//更新用户
 	public void update(User user){
-		if(user.getName() == null){
+		System.out.println("UserService_update:"+user.getWebsite());
+		if(user.getWebsite() == null){
 			System.out.println("用户名无效");
 		}else{
+			System.out.println("处于UserService,进入数据层UserDao");
 			userDao.update(user);
 		}
 	}
 	
 	 // 删除用户
 	 public void delete(User user){
-		if(user.getName() == null){
+		if(user.getWebsite() == null){
 			System.out.println("用户名无效,无法删除!!");
 		}else{
 			userDao.delete(user);

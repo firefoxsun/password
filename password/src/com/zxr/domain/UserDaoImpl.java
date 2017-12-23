@@ -1,7 +1,8 @@
 package com.zxr.domain;
 
 import java.sql.Connection;
-import java.sql.Date;
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +34,7 @@ public class UserDaoImpl implements UserDao {
 			st.setString(4, user.getEmail());
 			st.setString(5, user.getPassword());
 			st.setString(6, user.getTel());
-			st.setDate(7, new Date(user.getTimeStamp().getTime()));
+			st.setString(7, user.getTimeStamp());
 			// 执行语句
 			int count = st.executeUpdate();
 			System.out.println("添加记录的条数:" + count);
@@ -57,12 +58,12 @@ public class UserDaoImpl implements UserDao {
 			conn = JdbcUtils.getConnection();
 			// 创建语句
 			st = conn.prepareStatement(sql);
-			st.setString(2, user.getUserName());
+			st.setString(1, user.getWebsite());
 			// 执行语句
 			count = st.executeUpdate();
 			System.out.println("删除记录的条数:" + count);
 		} catch (SQLException e) {
-			System.out.println("删除用户:SQLException");
+			e.printStackTrace();
 		} finally {
 			JdbcUtils.free(null, st, conn);
 		}
@@ -71,17 +72,18 @@ public class UserDaoImpl implements UserDao {
 
 	// ===通过用户名获取用户信息===
 	@Override
-	public User getUserByName(String website) {
+	public User getUserByWebsite(String website) {
 		Connection conn = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
-		String sql = "select website from t_passinfo where website=?";
+		String sql = "select * from t_passinfo where website=?";
 
 		try {
 			// 连接数据库
 			conn = JdbcUtils.getConnection();
 			// 创建语句
 			st = conn.prepareStatement(sql);
+			
 			st.setString(1, website);
 			rs = st.executeQuery();
 			// 执行语句
@@ -92,11 +94,11 @@ public class UserDaoImpl implements UserDao {
 				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
 				user.setTel(rs.getString("tel"));
-				user.setTimeStamp(rs.getDate("timeStamp"));
+				user.setTimeStamp(rs.getString("timeStamp"));
 				return user;
 			}
 		} catch (SQLException e) {
-			System.out.println("通过用户名获取用户信息:SQLException");
+			e.printStackTrace();
 		} finally {
 			JdbcUtils.free(rs, st, conn);
 		}
@@ -107,25 +109,32 @@ public class UserDaoImpl implements UserDao {
 	// ===更新用户信息====
 	@Override
 	public int update(User user) {
+		System.out.println("处于UserDaoImpl的数据层Update");
 		Connection conn = null;
 		PreparedStatement st = null;
-		String sql = "update t_passinfo set userName = ?,email = ?,password = ?,tel = ?,timeStamp = ? where website =?";
+		String sql = "UPDATE t_passinfo SET urls=?,userName=?,email=?,PASSWORD=?,tel=?,TIMESTAMP=? WHERE website=?;";
+		
 		int count = 0;
 		try {
 			conn = JdbcUtils.getConnection();
 			st = conn.prepareStatement(sql);
-
-			st.setString(2, user.getUrls());
-			st.setString(3, user.getUserName());
-			st.setString(4, user.getEmail());
-			st.setString(5, user.getPassword());
-			st.setString(6, user.getTel());
-			st.setDate(7, new Date(user.getTimeStamp().getTime()));
 			
+			
+			//将其转化为sql数据类型
+			st.setObject(1, user.getUrls());
+			st.setObject(2, user.getUserName());
+			st.setObject(3, user.getEmail());
+			st.setObject(4, user.getPassword());
+			st.setObject(5, user.getTel());
+			st.setObject(6, user.getTimeStamp());
+			st.setObject(7, user.getWebsite());
+			
+			System.out.println(count);
 			count = st.executeUpdate();
+			System.out.println("@"+count);
 			System.out.println("更新的记录数是:" + count);
 		} catch (SQLException e) {
-			System.out.println("更新用户信息:SQLException");
+			e.printStackTrace();
 		} finally {
 			JdbcUtils.free(null, st, conn);
 		}

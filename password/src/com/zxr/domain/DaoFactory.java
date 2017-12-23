@@ -20,14 +20,14 @@ public class DaoFactory {
 		Properties prop = new Properties();
 		
 			try {
-				FileInputStream fis = new FileInputStream("src/com/zxr/domain/daoconfig.properties");
+				FileInputStream fis = new FileInputStream("F:/Project/java_password/password/src/com/zxr/domain/daoconfig.properties");
 				prop.load(fis);
 				String className = prop.getProperty("userDaolmpl");
 				Class<?> clazz = Class.forName(className);
 				userDao = (UserDao) clazz.newInstance();//可以创建对应的运行时类的对象
 				fis.close();
 			} catch (FileNotFoundException e) {
-				System.out.println("DaoFactory:FileNotFoundException");
+				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
 				System.out.println("DaoFactory:ClassNotFoundException");
 			} catch (InstantiationException e) {
@@ -44,7 +44,7 @@ public class DaoFactory {
 		return instance;
 	}
 	//获得实例
-	public  static UserDao createUserDao(){
+	public static UserDao createUserDao(){
 		return userDao;
 	}
 }
