@@ -1,0 +1,17 @@
+package controller;
+
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月23日 下午10:37:53 
+* 类说明 成功消息弹窗
+*/
+public class AlertSucce extends AnchorPane {
+	private static AlertSucce alertSucce;
+	private static  Stage  succeDialog ;
+	
+	
+	
+}

@@ -1,0 +1,34 @@
+package controller;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月24日 上午1:04:16 
+* 类说明 AltretDialog
+*/
+public class AlertDialog {
+	// When the addUser success
+		public void subAddButton(){
+			//加载AlertDialog.fxml文件
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("/view/subAddButton.fxml"));
+			try {
+				loader.load();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+	
+	
+	
+
+}

@@ -1,0 +1,25 @@
+package controller;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月23日 下午10:37:53 
+* 类说明 成功消息弹窗
+*/
+public class AlertSucce extends AnchorPane {
+	private static SucceDialog alertSucce;
+	private static  Stage  succeDialog;
+	
+	//
+	private AlertSucce(String message){
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/AlertSucce.fxml"));
+		fxmlLoader.setRoot(root);
+		
+	}
+	
+	
+	
+}

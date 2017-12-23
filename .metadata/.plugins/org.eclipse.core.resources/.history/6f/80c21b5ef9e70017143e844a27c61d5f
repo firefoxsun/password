@@ -1,0 +1,42 @@
+package controller;
+
+import java.io.IOException;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月23日 下午10:37:53 
+* 类说明 成功消息弹窗
+*/
+public class SucceDialog extends AnchorPane {
+	private static SucceDialog succeDialog;
+	private static  Stage  newsucceDialog;
+	
+	//加载fxml文件
+	private SucceDialog(String message){
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/AlertSucce.fxml"));
+		fxmlLoader.setRoot(SucceDialog.this);
+		try {
+			fxmlLoader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	//显示弹出框
+	public static void showAlertDialog(String message){
+		  newsucceDialog = new Stage(StageStyle.TRANSPARENT);  
+	        newsucceDialog.setResizable(false);  
+	        succeDialog = new SucceDialog(message);  
+	        newsucceDialog.setScene(new Scene(succeDialog));  
+	        newsucceDialog.show();  
+	}
+	
+	
+	
+}

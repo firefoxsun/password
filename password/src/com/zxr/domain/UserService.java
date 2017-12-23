@@ -18,7 +18,6 @@ public class UserService {
 		if(user == null){
 			System.out.println("注册信息无效");
 		}else{
-			System.out.println("注册信息有效");
 			userDao.addUser(user);
 		}
 	}
@@ -53,6 +52,5 @@ public class UserService {
 			userDao.delete(user);
 		}
 	}
-	
 
 }
