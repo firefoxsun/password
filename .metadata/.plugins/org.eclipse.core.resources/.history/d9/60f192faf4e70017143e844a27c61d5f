@@ -1,0 +1,21 @@
+package controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.Initializable;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月23日 下午10:37:53 
+* 类说明 成功消息弹窗
+*/
+public class AlertSucce implements Initializable {
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+	}
+	
+	
+}

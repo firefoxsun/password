@@ -1,0 +1,22 @@
+package com.zxr.project;
+
+import java.sql.DriverManager;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月21日 上午11:21:55 
+* 类说明 
+*/
+public class Demo {
+	public static void main(String[] args) {
+		//测试代码
+		test();
+	}
+
+	private static void test() {
+		//注册驱动
+		DriverManager.registerDriver(new com.mysql.jdbc);
+		
+	}
+	
+}

@@ -1,0 +1,26 @@
+package com.zxr.project;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月21日 上午11:21:55 
+* 类说明 
+*/
+public class Demo {
+	public static void main(String[] args) {
+		//测试代码
+		test();
+	}
+
+	private static void test() throws Exception {
+		//注册驱动 会造成DriverManager中产生两个一样的驱动，并会对具体的驱动类产生依赖。
+	//	DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+		//通过系统属性注册驱动
+	//	System.setProperty("jdbc.drivers", "");
+		//静态加载驱动
+		Class.forName("com.mysql.jdbc.Driver");
+	}
+	
+}

@@ -1,0 +1,68 @@
+package com.zxr.domain;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+/**
+ * @author zxr:zhaoxinran_dlmuit@163.com
+ * @version 创建时间：2017年12月21日 下午9:17:38 类说明 测试功能类
+ */
+public class TestDemo {
+	public static void main(String[] args) {
+		char flag = 'y';
+
+		UserService userService = new UserService();
+
+		while (true && flag == 'y') {
+			System.out.println("===我伟大的健忘症患者呀!^_^欢迎进入密码系统===");
+			System.out.println("1 增");
+			System.out.println("2 删");
+			System.out.println("3 查");
+			System.out.println("4 改");
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("请输入你需要的操作");
+			int num = scanner.nextInt();
+			switch (num) {
+				case 1: {
+					System.out.println("添加用户:");
+					
+					
+				
+					User user = new User("ac", "https://www.csdn.net/", "firefoxsun", "zhaoxinran_dlmuit@163.com",
+							"1998111522222", "18098847785", "123456");
+					userService.regist(user);
+					break;
+				}
+				case 2:{
+					System.out.println("删除用户:");
+					User user = new User("ac", "https://www.csdn.net/", "firefoxsun", "zhaoxinran_dlmuit@163.com",
+							"1998111522222", "18098847785",  "123456");
+					userService.delete(user);
+					break;
+				}
+				case 3:{
+					System.out.println("查找用户:");
+					String website = "ac";
+					System.out.println(userService.query(website));
+					break;
+				}
+				case 4:{
+					System.out.println("更新用户:");
+					User user = new User("ac", "https://www.ac.net/", "firefoxsun", "zhaoxinran_dlmuit@163.com",
+							"1998111522222", "18098847785",  "123456");
+					userService.update(user);
+					break;
+				}
+			
+			}
+		}
+
+	}
+	public static String tranDate(){
+		SimpleDateFormat sdf = new SimpleDateFormat();
+		String date = sdf.format(new Date());
+		System.out.println(date);
+		return date;
+	}
+}

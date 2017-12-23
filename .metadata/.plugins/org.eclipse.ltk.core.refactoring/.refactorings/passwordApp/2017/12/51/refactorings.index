@@ -1,0 +1,19 @@
+1513996217124	Move file
+1513996220852	Move file
+1513996271620	Rename package 'application'
+1513996426102	Rename package 'com.zxr.controller'
+1513996438971	Rename package 'com.zxr.view'
+1513996455287	Rename package 'com.zxr.model'
+1513998866276	Move file
+1513998869163	Move file
+1513998871872	Move compilation unit
+1514021815837	Rename resource 'password.fxml'
+1514038763144	Delete element
+1514039848742	Delete element
+1514041848354	Delete element
+1514042704773	Rename type 'AlertSucce'
+1514046711697	Rename resource 'AlertSucce.fxml'
+1514047242468	Delete element
+1514047272230	Rename resource 'AlertDialog'
+1514048640397	Delete element
+1514054228232	Rename resource 'AlertDialog.fxml'
