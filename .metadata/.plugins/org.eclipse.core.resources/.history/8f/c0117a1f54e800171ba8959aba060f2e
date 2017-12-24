@@ -1,0 +1,13 @@
+package controller;
+
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+
+/** 
+* @author zxr:zhaoxinran_dlmuit@163.com 
+* @version 创建时间：2017年12月24日 上午10:40:38 
+* 类说明 主页面的controller实现
+*/
+public interface MainPage {
+	public void addButton(Parent parent,Stage stage);
+}

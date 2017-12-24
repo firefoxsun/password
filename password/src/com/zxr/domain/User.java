@@ -1,6 +1,6 @@
 package com.zxr.domain;
 
-
+import javafx.beans.property.StringProperty;
 
 /**
  * @author zxr:zhaoxinran_dlmuit@163.com
@@ -13,64 +13,7 @@ public class User {
 	private String email;
 	private String password;
 	private String tel;
-	private String timeStamp;
-
-	public String getWebsite() {
-		return website;
-	}
-
-	public void setWebsite(String website) {
-		this.website = website;
-	}
-
-	public String getUrls() {
-		return urls;
-	}
-
-	public void setUrls(String urls) {
-		this.urls = urls;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-	public String getTimeStamp() {
-		return timeStamp;
-	}
-
-	public void setTimeStamp(String timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-
+	private String TimeStamp;
 	public User(String website, String urls, String userName, String email, String password, String tel,
 			String timeStamp) {
 		super();
@@ -80,11 +23,52 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.tel = tel;
-		this.timeStamp = timeStamp;
+		TimeStamp = timeStamp;
 	}
-
+	public String getWebsite() {
+		return website;
+	}
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+	public String getUrls() {
+		return urls;
+	}
+	public void setUrls(String urls) {
+		this.urls = urls;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getTel() {
+		return tel;
+	}
 	public User() {
 		super();
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getTimeStamp() {
+		return TimeStamp;
+	}
+	public void setTimeStamp(String timeStamp) {
+		TimeStamp = timeStamp;
 	}
 
 }

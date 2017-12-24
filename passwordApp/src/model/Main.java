@@ -16,17 +16,19 @@ import javafx.scene.Scene;
 
 
 public class Main extends Application {
-	 MainPage mainPage = new MainPage();
+	
+	 MainPageImpl mainPage = new MainPageImpl();
+	 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			//加载布局信息配置文件
 			Parent root = FXMLLoader.load(getClass().getResource("/view/MainPage.fxml"));
 			
-			mainPage.addButton(root);
-			mainPage.deletButton(root);
-			mainPage.queryButton(root);
-			mainPage.updateButton(root);
+			mainPage.addButton(root,primaryStage);
+			mainPage.deleteButton(root,primaryStage);
+			mainPage.queryButton(root,primaryStage);
+			mainPage.updateButton(root,primaryStage);
 			
 			primaryStage.setScene(new Scene(root));
 
