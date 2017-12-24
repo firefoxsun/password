@@ -14,11 +14,13 @@ public class UserService {
 	}
 	
 	//注册用户
-	public void regist(User user){
+	public boolean regist(User user){
 		if(user == null){
 			System.out.println("注册信息无效");
+			return false;
 		}else{
 			userDao.addUser(user);
+			return true;
 		}
 	}
 	
@@ -45,11 +47,13 @@ public class UserService {
 	}
 	
 	 // 删除用户
-	 public void delete(User user){
-		if(user.getWebsite() == null){
+	 public boolean delete(String website){
+		if(website == null){
 			System.out.println("用户名无效,无法删除!!");
+			return false;
 		}else{
-			userDao.delete(user);
+			userDao.delete(website);
+			return true;
 		}
 	}
 

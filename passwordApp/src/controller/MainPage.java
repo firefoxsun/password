@@ -9,15 +9,15 @@ import javafx.stage.Stage;
  */
 public interface MainPage {
 	// addButton控件
-	public void addButton(Parent parent, Stage stage);
+	public void addButton(Parent parent, Stage primaryPage);
 
 	// deleteButton控件
-	public void deleteButton(Parent parent, Stage stage);
+	public void deleteButton(Parent parent, Stage primaryPage);
 
 	// queryButton控件
-	public void queryButton(Parent parent, Stage stage);
+	public void queryButton(Parent parent, Stage primaryPage);
 
 	// updateButton控件
-	public void updateButton(Parent parent, Stage stage);
+	public void updateButton(Parent parent, Stage primaryPage);
 	
 }

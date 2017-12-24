@@ -48,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 
 	// ===删除用户====
 	@Override
-	public int delete(User user) {
+	public int delete(String website) {
 		int count = 0;
 		Connection conn = null;
 		PreparedStatement st = null;
@@ -58,7 +58,7 @@ public class UserDaoImpl implements UserDao {
 			conn = JdbcUtils.getConnection();
 			// 创建语句
 			st = conn.prepareStatement(sql);
-			st.setString(1, user.getWebsite());
+			st.setString(1, website);
 			// 执行语句
 			count = st.executeUpdate();
 			System.out.println("删除记录的条数:" + count);

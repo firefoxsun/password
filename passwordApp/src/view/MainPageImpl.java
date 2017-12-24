@@ -3,6 +3,7 @@ package view;
 import java.net.URL;
 import com.zxr.domain.*;
 
+import controller.Add_registDialog;
 import controller.MainPage;
 import controller.SubDialog;
 import controller.subDialogImpl;
@@ -55,18 +56,13 @@ public class MainPageImpl implements Initializable, MainPage {
 				System.out.println("===录入信息===");
 				// 进入录入信息界面
 				subDialog.add_RegisDialog(primaryPage);
-				User user = new User("aoo", "https://www.csdn.net/", "firefoxsun", "zhaoxinran_dlmuit@163.com",
-						"1998111522222", "18098847785", "123456");
-				userService.regist(user);
-				// 进入第二界面
-				//subDialog.add_ConfmDialog(primaryPage);
 			}
 		});
 	}
 
 	@Override
 	// When user click on deletButton
-	public void deleteButton(Parent parent, Stage stage) {
+	public void deleteButton(Parent parent, Stage primaryPage) {
 		// 初始化控件
 		this.deletButton = (Button) parent.lookup("#deletButton");
 		deletButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -74,16 +70,14 @@ public class MainPageImpl implements Initializable, MainPage {
 			@Override
 			public void handle(ActionEvent event) {
 				System.out.println("===删除信息===");
-				User user = new User("aoo", "https://www.csdn.net/", "firefoxsun", "zhaoxinran_dlmuit@163.com",
-						"1998111522222", "18098847785", "123456");
-				userService.delete(user);
+				subDialog.del_RegisDialog(primaryPage);
 			}
 		});
 	}
 
 	@Override
 	// When user click on queryButton
-	public void queryButton(Parent parent, Stage stage) {
+	public void queryButton(Parent parent, Stage primaryPage) {
 		this.queryButton = (Button) parent.lookup("#queryButton");
 		queryButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -98,7 +92,7 @@ public class MainPageImpl implements Initializable, MainPage {
 
 	@Override
 	// when user click on updateButton
-	public void updateButton(Parent parent, Stage stage) {
+	public void updateButton(Parent parent, Stage primaryPage) {
 		this.updateButton = (Button) parent.lookup("#updateButton");
 		updateButton.setOnAction(new EventHandler<ActionEvent>() {
 

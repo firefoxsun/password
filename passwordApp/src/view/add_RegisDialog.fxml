@@ -67,7 +67,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <PasswordField fx:id="add_password" onAction="#add_password" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <PasswordField fx:id="add_password"  promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </GridPane.margin>
@@ -78,7 +78,7 @@
                   <Font size="20.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="add_website" onAction="#add_website" promptText="Website" GridPane.columnIndex="1">
+            <TextField fx:id="add_website" promptText="Website" GridPane.columnIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
@@ -89,7 +89,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="add_urls" onAction="#add_urls" promptText="Urls" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="add_urls"  promptText="Urls" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
@@ -100,7 +100,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="add_userName" alignment="BOTTOM_LEFT" onAction="#add_userName" promptText="UserName" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="add_userName" alignment="BOTTOM_LEFT"  promptText="UserName" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
@@ -111,7 +111,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="add_email" onAction="#add_email" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="add_email"  promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="20.0" />
                </font>
@@ -122,7 +122,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </TextField>
-            <TextField fx:id="add_tel" onAction="#add_tel" promptText="Tel" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="add_tel"  promptText="Tel" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -133,7 +133,7 @@
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="add_timeStamp" onAction="#add_timeStamp" promptText="TimeStamp" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField fx:id="add_timeStamp"  promptText="TimeStamp" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -149,7 +149,7 @@
             <Insets />
          </opaqueInsets>
       </GridPane>
-      <Button fx:id="add_submit" alignment="CENTER" layoutX="266.0" layoutY="356.0" mnemonicParsing="false" onAction="#add_submit" text="Submit" textAlignment="CENTER" AnchorPane.leftAnchor="240.0">
+      <Button fx:id="add_submit" alignment="CENTER" layoutX="266.0" layoutY="356.0" mnemonicParsing="false"  text="Submit" textAlignment="CENTER" AnchorPane.leftAnchor="240.0">
          <font>
             <Font name="Consolas Bold" size="19.0" />
          </font>

@@ -1,12 +1,16 @@
 package com.zxr.domain;
 
-import javafx.beans.property.StringProperty;
 
 /**
  * @author zxr:zhaoxinran_dlmuit@163.com
  * @version 创建时间：2017年12月21日 下午3:24:23 类说明
  */
 public class User {
+	@Override
+	public String toString() {
+		return "User [website=" + website + ", urls=" + urls + ", userName=" + userName + ", email=" + email
+				+ ", password=" + password + ", tel=" + tel + ", TimeStamp=" + TimeStamp + "]";
+	}
 	private String website;
 	private String urls;
 	private String userName;
