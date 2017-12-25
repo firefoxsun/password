@@ -14,11 +14,13 @@ public class UserService {
 	}
 	
 	//注册用户
-	public void regist(User user){
+	public boolean regist(User user){
 		if(user == null){
 			System.out.println("注册信息无效");
+			return false;
 		}else{
 			userDao.addUser(user);
+			return true;
 		}
 	}
 	
@@ -28,28 +30,31 @@ public class UserService {
 		if(user == null){
 			System.out.println("查询结果为空!!");
 		}else{
-			System.out.println(user.getUrls()+"\t"+user.getUserName()+"\t"+user.getEmail()+"\t"+user.getPassword()+"\t"+user.getTel()+"\t"+user.getTimeStamp());
+			System.out.println("检索成功");
 		}
 		return userDao.getUserByWebsite(website);
 	}
 	
 	//更新用户
-	public void update(User user){
+	public boolean update(User user){
 		System.out.println("UserService_update:"+user.getWebsite());
 		if(user.getWebsite() == null){
 			System.out.println("用户名无效");
+			return false;
 		}else{
-			System.out.println("处于UserService,进入数据层UserDao");
 			userDao.update(user);
+			return true;
 		}
 	}
 	
 	 // 删除用户
-	 public void delete(User user){
-		if(user.getWebsite() == null){
+	 public boolean delete(String website){
+		if(website == null){
 			System.out.println("用户名无效,无法删除!!");
+			return false;
 		}else{
-			userDao.delete(user);
+			userDao.delete(website);
+			return true;
 		}
 	}
 

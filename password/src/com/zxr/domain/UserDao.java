@@ -18,14 +18,15 @@ public interface UserDao {
 	// 添加用户
 	public void addUser(User user);
 
+	// 删除用户信息
+	public int delete(String website);
+
 	// 通过userid查询用户，id是唯一，返回user
 	public User getUserByWebsite(String website);
 
 	// 更新用户信息
 	public int update(User user);
 
-	// 删除用户信息
-	public int delete(User user);
 
 	
 }

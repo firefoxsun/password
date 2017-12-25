@@ -48,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 
 	// ===删除用户====
 	@Override
-	public int delete(User user) {
+	public int delete(String website) {
 		int count = 0;
 		Connection conn = null;
 		PreparedStatement st = null;
@@ -58,7 +58,7 @@ public class UserDaoImpl implements UserDao {
 			conn = JdbcUtils.getConnection();
 			// 创建语句
 			st = conn.prepareStatement(sql);
-			st.setString(1, user.getWebsite());
+			st.setString(1, website);
 			// 执行语句
 			count = st.executeUpdate();
 			System.out.println("删除记录的条数:" + count);
@@ -89,6 +89,7 @@ public class UserDaoImpl implements UserDao {
 			// 执行语句
 			if (rs.next()) {
 				User user = new User();
+				user.setWebsite(rs.getString("website"));
 				user.setUrls(rs.getString("urls"));
 				user.setUserName(rs.getString("userName"));
 				user.setEmail(rs.getString("email"));
@@ -109,7 +110,6 @@ public class UserDaoImpl implements UserDao {
 	// ===更新用户信息====
 	@Override
 	public int update(User user) {
-		System.out.println("处于UserDaoImpl的数据层Update");
 		Connection conn = null;
 		PreparedStatement st = null;
 		String sql = "UPDATE t_passinfo SET urls=?,userName=?,email=?,PASSWORD=?,tel=?,TIMESTAMP=? WHERE website=?;";
@@ -129,9 +129,7 @@ public class UserDaoImpl implements UserDao {
 			st.setObject(6, user.getTimeStamp());
 			st.setObject(7, user.getWebsite());
 			
-			System.out.println(count);
 			count = st.executeUpdate();
-			System.out.println("@"+count);
 			System.out.println("更新的记录数是:" + count);
 		} catch (SQLException e) {
 			e.printStackTrace();
