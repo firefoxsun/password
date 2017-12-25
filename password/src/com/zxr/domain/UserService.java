@@ -30,19 +30,20 @@ public class UserService {
 		if(user == null){
 			System.out.println("查询结果为空!!");
 		}else{
-			System.out.println(user.getUrls()+"\t"+user.getUserName()+"\t"+user.getEmail()+"\t"+user.getPassword()+"\t"+user.getTel()+"\t"+user.getTimeStamp());
+			System.out.println("检索成功");
 		}
 		return userDao.getUserByWebsite(website);
 	}
 	
 	//更新用户
-	public void update(User user){
+	public boolean update(User user){
 		System.out.println("UserService_update:"+user.getWebsite());
 		if(user.getWebsite() == null){
 			System.out.println("用户名无效");
+			return false;
 		}else{
-			System.out.println("处于UserService,进入数据层UserDao");
 			userDao.update(user);
+			return true;
 		}
 	}
 	

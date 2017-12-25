@@ -1,0 +1,161 @@
+/*
+ * Copyright (c) 2012, 2014 Oracle and/or its affiliates.
+ * All rights reserved. Use is subject to license terms.
+ *
+ * This file is available and licensed under the following license:
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *  - Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  - Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the distribution.
+ *  - Neither the name of Oracle nor the names of its
+ *    contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package login;
+
+import javafx.application.Application;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import static javafx.geometry.HPos.RIGHT;
+
+import com.zxr.domain.User;
+import com.zxr.domain.UserService;
+
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+public class Login extends Application {
+
+	@Override
+	public void start(Stage primaryStage) {
+		primaryStage.setTitle("检索信息(输入需要检索的website)");
+		GridPane grid = new GridPane();
+		grid.setAlignment(Pos.CENTER);
+		grid.setHgap(10);
+		grid.setVgap(10);
+		grid.setPadding(new Insets(25, 25, 25, 25));
+
+		Text scenetitle = new Text("Input Information");
+		scenetitle.setFont(Font.font("consolas", FontWeight.BOLD, 30));
+		grid.add(scenetitle, 0, 0, 2, 1);
+		// 第一行
+		Label website = new Label("Website:");
+		website.setFont(Font.font("consolas", FontWeight.NORMAL, 23));
+		website.setMinWidth(30);
+		grid.add(website, 0, 1);
+
+		TextField websiteTextField = new TextField();
+		grid.add(websiteTextField, 1, 1);
+		websiteTextField.setPromptText("input Website");
+
+		// button
+		Button btn = new Button("Sign in");
+		HBox hbBtn = new HBox(10);
+		hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+		hbBtn.getChildren().add(btn);
+		grid.add(hbBtn, 1, 8);
+
+		final Text actiontarget = new Text();
+		grid.add(actiontarget, 0, 8);
+		grid.setColumnSpan(actiontarget, 2);
+		grid.setHalignment(actiontarget, HPos.LEFT);
+		actiontarget.setId("actiontarget");
+		// 事件监听器
+		btn.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+
+				String web_s = websiteTextField.getText();
+				UserService service = new UserService();
+				User user = service.query(web_s);
+				if (user != null) {
+					actiontarget.setFill(Color.BLACK);
+					Font font = new Font(20);
+					actiontarget.setFont(font);
+					displayInfo(primaryStage, user);
+
+				} else {
+					actiontarget.setText("数据插入数据库失败");
+				}
+			}
+		});
+
+		Scene scene = new Scene(grid, 500, 500);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+	}
+
+	public void displayInfo(Stage primaryStage, User user) {
+		primaryStage.setTitle("信息展示");
+		GridPane grid = new GridPane();
+		grid.setAlignment(Pos.CENTER);
+		grid.setHgap(10);
+		grid.setVgap(10);
+		grid.setPadding(new Insets(25, 25, 25, 25));
+
+		Text scenetitle = new Text("Input Information");
+		scenetitle.setFont(Font.font("consolas", FontWeight.BOLD, 30));
+		grid.add(scenetitle, 0, 0, 2, 1);
+
+		// 1
+		Label display = new Label("Website:");
+		display.setFont(Font.font("consolas", FontWeight.NORMAL, 23));
+		display.setMinWidth(30);
+		grid.add(display, 0, 1);
+		// 2
+		TextArea textArea = new TextArea();
+		textArea.setEditable(false);
+		textArea.setWrapText(true);
+		textArea.setFont(new Font(15));
+		textArea.setText("Website:"+"\t"+ user.getWebsite() + "\n\n" + "Urls:"+"\t"+ user.getUrls() + "\n\n" + "UserName:"+"\t"
+				+ user.getUserName() + "\n\n" + "Email:"+"\t" + user.getEmail() + "\n\n" + "Password:"+"\t" + user.getPassword()
+				+ "\n\n" + "Tel:"+"\t" + user.getTel() +"\n\n "+ "TimeStamp:"+"\t" + user.getTimeStamp());
+		grid.add(textArea, 0, 2);
+
+		Scene scene = new Scene(grid, 500, 500);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+}

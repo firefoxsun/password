@@ -1,10 +1,5 @@
 INDEX VERSION 1.130+F:\Project\java_password\.metadata\.plugins\org.eclipse.jdt.core
-481948438.index
-1734703654.index
-101253277.index
-2030746544.index
 1047040559.index
-2148264656.index
 3535958767.index
 3856304966.index
 297508621.index

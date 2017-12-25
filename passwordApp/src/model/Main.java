@@ -20,21 +20,21 @@ public class Main extends Application {
 	 MainPageImpl mainPage = new MainPageImpl();
 	 
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage mainStage) {
 		try {
 			//加载布局信息配置文件
 			Parent root = FXMLLoader.load(getClass().getResource("/view/MainPage.fxml"));
 			
-			mainPage.addButton(root,primaryStage);
-			mainPage.deleteButton(root,primaryStage);
-			mainPage.queryButton(root,primaryStage);
-			mainPage.updateButton(root,primaryStage);
+			mainPage.addButton(root,mainStage);
+			mainPage.deleteButton(root,mainStage);
+			mainPage.queryButton(root,mainStage);
+			mainPage.updateButton(root,mainStage);
 			
-			primaryStage.setScene(new Scene(root));
+			mainStage.setScene(new Scene(root));
 
-			primaryStage.setTitle("密码查询系统");
-			primaryStage.setResizable(false);
-			primaryStage.show();
+			mainStage.setTitle("密码查询系统");
+			mainStage.setResizable(false);
+			mainStage.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
